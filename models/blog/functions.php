@@ -1,25 +1,30 @@
 <?php
 
-function getAllBlogs(){
+function getAllBlogs()
+{
     return executeQuery("SELECT *, idBlog as blog_id FROM blog");
 }
 
-function getCommentsForBlog($blog_id){
+function getLimitedBlog()
+{
+    return executeQuery("SELECT *, idBlog as blog_id FROM blog limit 0,4");
+}
+
+function getCommentsForBlog($blog_id)
+{
     global $conn;
 
-    try{
+    try {
         $stmt = $conn->prepare("SELECT * FROM comments c inner join blog b on c.idBlog = b.idBlog inner join users u on u.idUser = c.idUser where b.idBlog = ?");
         $stmt->execute([$blog_id]);
-        
-        if($stmt){
+
+        if ($stmt) {
             $comments = $stmt->fetchAll();
             return $comments;
         }
-        
-    }catch(PDOException $ex){
+    } catch (PDOException $ex) {
         echo $ex->getMessage();
     }
-
 }
 
 // function getUserForComment($user_id){
@@ -39,44 +44,47 @@ function getCommentsForBlog($blog_id){
 //     }
 // }
 
-function getOneBlog($blog_id){
+function getOneBlog($blog_id)
+{
     global $conn;
 
-    try{
+    try {
         $stmt = $conn->prepare("SELECT * FROM blog where idBlog = ?");
         $stmt->execute([$blog_id]);
         $blog = $stmt->fetch();
-        
+
 
         return $blog;
-    }catch(PDOExceptoin $ex){
+    } catch (PDOExceptoin $ex) {
         echo $ex->getMessage();
     }
 }
 
-function insertComment($message, $date, $idUser, $idBlog){
+function insertComment($message, $date, $idUser, $idBlog)
+{
     global $conn;
 
     $stmt = $conn->prepare("INSERT INTO comments values(null, ?, ?, ?, ?)");
     $stmt->execute([$message, $date, $idUser, $idBlog]);
 
-    if($stmt){
+    if ($stmt) {
         http_response_code(201);
 
-        try{
+        try {
             $comment = getCommentsForBlog($idBlog);
             // var_dump($comment);
 
             return $comment;
-        }catch(PDOExceptoin $ex){
+        } catch (PDOExceptoin $ex) {
             echo $ex->getMessage();
         }
-    }else{
+    } else {
         http_response_code(400);
     }
 }
 
-function PPNumberBlog(){
+function PPNumberBlog()
+{
 
     global $offset;
 
@@ -85,7 +93,7 @@ function PPNumberBlog(){
     $numberOfBlog = executeQuery("SELECT count(*) as PPNumber from blog");
     $numberOfBlogs = $numberOfBlog[0]->PPNumber;
 
-    $PPNumber = ceil($numberOfBlogs/$offset);
+    $PPNumber = ceil($numberOfBlogs / $offset);
 
     return $PPNumber;
 }

@@ -1,31 +1,27 @@
 <?php
 header("Content-Type: application/json");
-if(!isset($_POST['btnn'])){
+if (!isset($_POST['btnn'])) {
     http_response_code(403);
-}else{
+} else {
 
     $upit = "SELECT * 
     from main_category_info mc join genre_main_category_info gm 
     on mc.idMainCatInfo = gm.idMainCatInfo 
-    where mc.mainCatInfoName LIKE '%".$_POST['seriesname']."%' AND mc.idMainCat = 2";
+    where mc.mainCatInfoName LIKE '%" . $_POST['seriesname'] . "%' AND mc.idMainCat = 2 GROUP BY mc.idMainCatInfo";
 
-    if($_POST['seriesgenres']){
-        $upit .= "and gm.idGenre = ".$_POST['seriesgenres'];
-    }
-    $upit .= " GROUP BY mc.idMainCatInfo";
-    try{
+    try {
 
         include '../../config/connection.php';
 
         $tmp = $conn->prepare($upit);
-        $tmp->execute();
-        
-        if($tmp){
-            $result = $tmp->fetchAll();
 
+        $tmp->execute();
+
+        if ($tmp) {
+            $result = $tmp->fetchAll();
             echo json_encode($result);
         }
-    }catch(PDOException $ex){
+    } catch (PDOException $ex) {
         echo $ex->getMessage();
     }
 }

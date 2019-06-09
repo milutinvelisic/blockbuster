@@ -1,6 +1,7 @@
 <?php
 
-function getAllActors(){
+function getAllActors()
+{
     global $conn;
 
     $select = $conn->query("SELECT * FROM actors LIMIT 0,6")->fetchAll();
@@ -8,7 +9,8 @@ function getAllActors(){
     return $select;
 }
 
-function getActorMovies($actorId){
+function getActorMovies($actorId)
+{
     global $conn;
 
     $tmp = $conn->prepare("SELECT * from main_category_info mci inner join actor_main_category_info amci on mci.idMainCatInfo = amci.idMainCatInfo where amci.idActor = ?");
@@ -17,45 +19,46 @@ function getActorMovies($actorId){
     return $tmp->fetchAll();
 }
 
-function getOneActor($actorId){
+function getOneActor($actorId)
+{
     global $conn;
 
-    try{
+    try {
 
         $tmp = $conn->prepare("SELECT * FROM actors where idActor = ?");
         $tmp->execute([$actorId]);
 
         $actor = $tmp->fetch();
-        if($actor){
+        if ($actor) {
             $actor->movies = getActorMovies($actorId);
         }
 
         return $actor;
-
-    }catch(PDOException $ex){
+    } catch (PDOException $ex) {
         return null;
     }
 }
 
-function getSomeCelebs(){
-    return executeQuery("SELECT * FROM actors order by rand() limit 0,4");
+function getSomeCelebs()
+{
+    return executeQuery("SELECT * FROM actors limit 0,4");
 }
 
-function checkPagination($value){
+function checkPagination($value)
+{
 
     $offset = 6;
 
     $PPNumber = executeQuery("SELECT count(*) as PPNumber from actors");
-    $brojDugmica = ceil($PPNumber/$offset);
+    $brojDugmica = ceil($PPNumber / $offset);
 
-    if(isset($_GET['pp'])){
+    if (isset($_GET['pp'])) {
         $pagePagination = ($_GET['pp'] - 1) * $offset;
     }
-
-
 }
 
-function PPNumberCelebs(){
+function PPNumberCelebs()
+{
 
     global $offset;
 
@@ -64,7 +67,7 @@ function PPNumberCelebs(){
     $numberOfActor = executeQuery("SELECT count(*) as PPNumber from actors");
     $numberOfActors = $numberOfActor[0]->PPNumber;
 
-    $PPNumber = ceil($numberOfActors/$offset);
+    $PPNumber = ceil($numberOfActors / $offset);
 
     return $PPNumber;
 }

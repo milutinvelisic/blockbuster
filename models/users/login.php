@@ -1,34 +1,34 @@
 <?php
 session_start();
-if(!isset($_POST['btnLogin'])){
+if (!isset($_POST['btnLogin'])) {
     http_response_code(404);
-}else{
-    $username = strtolower($_POST['logusername']);
+} else {
+    $email = strtolower($_POST['email']);
+    $password = md5($_POST['password']);
+    try {
+        include '../../config/connection.php';
+        include 'functions.php';
 
-    $usernamereg = "/[A-z]{5,}\d{0,}/";    
+        // $tmp = executeUser('password', $password);
 
-    $errors = [];
+        // $select = executeUser('email', $email);
+        $select = checkUser($email, $password);
 
-    if(!preg_match($usernamereg, $username)){
-        http_response_code(401);
-        $errors[] = "Username does not match!";
-        echo json_encode($errors);
-    }else{
+        // $tmp = $conn->prepare("SELECT * FROM users where email = ? and password = ?");
+        // $tmp->execute([$email, $password]);
 
-        try{
-            include '../../config/connection.php';
-            include 'functions.php';
-    
-            $select = executeUser('username', $username);
-    
-            if($select){
-                $user = $select->fetch();
-                $_SESSION['user'] = $user;
-                header("Location: ../../index.php");
-            }
-        }catch (PDOException $ex){
-            http_response_code(400);
-            echo $ex->getMessage();
+
+        // var_dump($tmp->fetch());
+
+        if ($select) {
+            $user = $select;
+            $_SESSION['user'] = $user;
+            header("Location: ../../index.php");
+        } else {
+            http_response_code(403);
         }
+    } catch (PDOException $ex) {
+        http_response_code(400);
+        echo $ex->getMessage();
     }
 }
