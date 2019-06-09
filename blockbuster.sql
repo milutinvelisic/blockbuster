@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2019 at 12:26 AM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.6
+-- Generation Time: Jun 10, 2019 at 12:50 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -140,6 +140,26 @@ INSERT INTO `agerestriction` (`idAgeRes`, `ageResName`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `author`
+--
+
+CREATE TABLE `author` (
+  `idAuthor` int(50) NOT NULL,
+  `imePrezime` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `kratakOpis` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `opis` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `author`
+--
+
+INSERT INTO `author` (`idAuthor`, `imePrezime`, `kratakOpis`, `opis`) VALUES
+(1, 'Milutin Velisic', 'Designer // Developer', 'I\'m Milutin, designer and developer, student of ICT college, learner and ready for new projects. I love coding and making coding fun and easier for both others and me. Im experienced with HTML, CSS, JavaScript, Bootstrap, PHP, C, C#, SQL, MYSQL, MSSQL as well.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `blog`
 --
 
@@ -149,7 +169,7 @@ CREATE TABLE `blog` (
   `textShort` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `textLong` text COLLATE utf8_unicode_ci NOT NULL,
   `blogCoverPhoto` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
+  `date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -161,7 +181,9 @@ INSERT INTO `blog` (`idBlog`, `title`, `textShort`, `textLong`, `blogCoverPhoto`
 (2, 'Godzilla: King Of The Monsters Adds O’Shea Jackson Jr', 'In the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanista', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female characters. After his documented frustrations with Wonder Woman, he\'s getting another chance at the DC Extended Universe and Warner Bros., closing in on a deal to write direct and produce a Batgirl movie.\r\n\r\nIt\'s a somewhat surprising, but welcome move, given that Whedon has taken a long break to write something original, but has now pivoted to focus on developing the Batgirl project. First appearing in 1967 in Gardner Fox and Carmine Infantino\'s story run The Million Dollar Debut Of Batgirl, she\'s the superhero alias of Barbara Gordon, daughter of Gotham City Police Commissioner James Gordon. So we can likely expect J.K. Simmons\' take on Gordon to appear along with other Bat-related characters.\r\n\r\nBased on Lissa Evans’ novel “Their Finest Hour and a Half” and directed by Lone Scherfig (“An Education”), the film is set in London during World War II when the British ministry was utilizing propaganda films to boost morale. Arterton plays Catrin Cole, a scriptwriter who is brought on to handle the women’s dialogue — commonly referred to as “the nausea.” The film, opening this week, features an outstanding ensemble, including Bill Nighy as a washed-up actor and Sam Claflin as Catrin’s fellow writer and sparring partner.\r\n\r\nArterton is next set to play Vita Sackville-West in Vita and Virginia about her relationship with Virginia Woolf. She spoke to Variety about working with female directors, remarkable women, and why she shies away from the term “strong female character.” \r\nI’m friends with the producer who I worked with on Byzantium and he sent it to me. I read the book as well, which is fantastic. You’re always looking for untold stories and many times they’re women’s stories. What surprised me is that it centers around a woman who’s really quite timid. I guess she’s allowed to be because all of the other characters.\r\n\r\n\r\nMan Down debuted simultaneously on digital platforms in the U.K., meaning it was never going to be a big earner in theaters. But no one expected only one ticket sale. As of Tuesday, the Reel Cinema in Burnley was still carrying Man Down, which also stars Gary Oldman, Jai Courtney and Kate Mara.\r\n\r\nIn the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanistan. The indie project, reuniting the star with A Guide to Recognizing Your Saints director Dito Montile, made its world premiere at the 2016 Venice Film Festival before making making a stop at the Toronto International Film Festival.', 'blogv21.jpg', '0000-00-00 00:00:00.000000'),
 (3, 'Godzilla: King Of The Monsters Adds O’Shea Jackson Jr', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female cha', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female characters. After his documented frustrations with Wonder Woman, he\'s getting another chance at the DC Extended Universe and Warner Bros., closing in on a deal to write direct and produce a Batgirl movie.\r\n\r\nIt\'s a somewhat surprising, but welcome move, given that Whedon has taken a long break to write something original, but has now pivoted to focus on developing the Batgirl project. First appearing in 1967 in Gardner Fox and Carmine Infantino\'s story run The Million Dollar Debut Of Batgirl, she\'s the superhero alias of Barbara Gordon, daughter of Gotham City Police Commissioner James Gordon. So we can likely expect J.K. Simmons\' take on Gordon to appear along with other Bat-related characters.\r\n\r\nBased on Lissa Evans’ novel “Their Finest Hour and a Half” and directed by Lone Scherfig (“An Education”), the film is set in London during World War II when the British ministry was utilizing propaganda films to boost morale. Arterton plays Catrin Cole, a scriptwriter who is brought on to handle the women’s dialogue — commonly referred to as “the nausea.” The film, opening this week, features an outstanding ensemble, including Bill Nighy as a washed-up actor and Sam Claflin as Catrin’s fellow writer and sparring partner.\r\n\r\nArterton is next set to play Vita Sackville-West in Vita and Virginia about her relationship with Virginia Woolf. She spoke to Variety about working with female directors, remarkable women, and why she shies away from the term “strong female character.” \r\nI’m friends with the producer who I worked with on Byzantium and he sent it to me. I read the book as well, which is fantastic. You’re always looking for untold stories and many times they’re women’s stories. What surprised me is that it centers around a woman who’s really quite timid. I guess she’s allowed to be because all of the other characters.\r\n\r\n\r\nMan Down debuted simultaneously on digital platforms in the U.K., meaning it was never going to be a big earner in theaters. But no one expected only one ticket sale. As of Tuesday, the Reel Cinema in Burnley was still carrying Man Down, which also stars Gary Oldman, Jai Courtney and Kate Mara.\r\n\r\nIn the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanistan. The indie project, reuniting the star with A Guide to Recognizing Your Saints director Dito Montile, made its world premiere at the 2016 Venice Film Festival before making making a stop at the Toronto International Film Festival.', 'blogv21.jpg', '0000-00-00 00:00:00.000000'),
 (4, 'Godzilla: King Of The Monsters Adds O’Shea Jackson Jr', 'In the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanista', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female characters. After his documented frustrations with Wonder Woman, he\'s getting another chance at the DC Extended Universe and Warner Bros., closing in on a deal to write direct and produce a Batgirl movie.\r\n\r\nIt\'s a somewhat surprising, but welcome move, given that Whedon has taken a long break to write something original, but has now pivoted to focus on developing the Batgirl project. First appearing in 1967 in Gardner Fox and Carmine Infantino\'s story run The Million Dollar Debut Of Batgirl, she\'s the superhero alias of Barbara Gordon, daughter of Gotham City Police Commissioner James Gordon. So we can likely expect J.K. Simmons\' take on Gordon to appear along with other Bat-related characters.\r\n\r\nBased on Lissa Evans’ novel “Their Finest Hour and a Half” and directed by Lone Scherfig (“An Education”), the film is set in London during World War II when the British ministry was utilizing propaganda films to boost morale. Arterton plays Catrin Cole, a scriptwriter who is brought on to handle the women’s dialogue — commonly referred to as “the nausea.” The film, opening this week, features an outstanding ensemble, including Bill Nighy as a washed-up actor and Sam Claflin as Catrin’s fellow writer and sparring partner.\r\n\r\nArterton is next set to play Vita Sackville-West in Vita and Virginia about her relationship with Virginia Woolf. She spoke to Variety about working with female directors, remarkable women, and why she shies away from the term “strong female character.” \r\nI’m friends with the producer who I worked with on Byzantium and he sent it to me. I read the book as well, which is fantastic. You’re always looking for untold stories and many times they’re women’s stories. What surprised me is that it centers around a woman who’s really quite timid. I guess she’s allowed to be because all of the other characters.\r\n\r\n\r\nMan Down debuted simultaneously on digital platforms in the U.K., meaning it was never going to be a big earner in theaters. But no one expected only one ticket sale. As of Tuesday, the Reel Cinema in Burnley was still carrying Man Down, which also stars Gary Oldman, Jai Courtney and Kate Mara.\r\n\r\nIn the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanistan. The indie project, reuniting the star with A Guide to Recognizing Your Saints director Dito Montile, made its world premiere at the 2016 Venice Film Festival before making making a stop at the Toronto International Film Festival.', 'blogv21.jpg', '0000-00-00 00:00:00.000000'),
-(5, 'Godzilla: King Of The Monsters Adds O’Shea Jackson Jr', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female cha', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female characters. After his documented frustrations with Wonder Woman, he\'s getting another chance at the DC Extended Universe and Warner Bros., closing in on a deal to write direct and produce a Batgirl movie.\r\n\r\nIt\'s a somewhat surprising, but welcome move, given that Whedon has taken a long break to write something original, but has now pivoted to focus on developing the Batgirl project. First appearing in 1967 in Gardner Fox and Carmine Infantino\'s story run The Million Dollar Debut Of Batgirl, she\'s the superhero alias of Barbara Gordon, daughter of Gotham City Police Commissioner James Gordon. So we can likely expect J.K. Simmons\' take on Gordon to appear along with other Bat-related characters.\r\n\r\nBased on Lissa Evans’ novel “Their Finest Hour and a Half” and directed by Lone Scherfig (“An Education”), the film is set in London during World War II when the British ministry was utilizing propaganda films to boost morale. Arterton plays Catrin Cole, a scriptwriter who is brought on to handle the women’s dialogue — commonly referred to as “the nausea.” The film, opening this week, features an outstanding ensemble, including Bill Nighy as a washed-up actor and Sam Claflin as Catrin’s fellow writer and sparring partner.\r\n\r\nArterton is next set to play Vita Sackville-West in Vita and Virginia about her relationship with Virginia Woolf. She spoke to Variety about working with female directors, remarkable women, and why she shies away from the term “strong female character.” \r\nI’m friends with the producer who I worked with on Byzantium and he sent it to me. I read the book as well, which is fantastic. You’re always looking for untold stories and many times they’re women’s stories. What surprised me is that it centers around a woman who’s really quite timid. I guess she’s allowed to be because all of the other characters.\r\n\r\n\r\nMan Down debuted simultaneously on digital platforms in the U.K., meaning it was never going to be a big earner in theaters. But no one expected only one ticket sale. As of Tuesday, the Reel Cinema in Burnley was still carrying Man Down, which also stars Gary Oldman, Jai Courtney and Kate Mara.\r\n\r\nIn the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanistan. The indie project, reuniting the star with A Guide to Recognizing Your Saints director Dito Montile, made its world premiere at the 2016 Venice Film Festival before making making a stop at the Toronto International Film Festival.', 'blogv21.jpg', '0000-00-00 00:00:00.000000');
+(5, 'Godzilla: King Of The Monsters Adds O’Shea Jackson Jr', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female cha', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female characters. After his documented frustrations with Wonder Woman, he\'s getting another chance at the DC Extended Universe and Warner Bros., closing in on a deal to write direct and produce a Batgirl movie.\r\n\r\nIt\'s a somewhat surprising, but welcome move, given that Whedon has taken a long break to write something original, but has now pivoted to focus on developing the Batgirl project. First appearing in 1967 in Gardner Fox and Carmine Infantino\'s story run The Million Dollar Debut Of Batgirl, she\'s the superhero alias of Barbara Gordon, daughter of Gotham City Police Commissioner James Gordon. So we can likely expect J.K. Simmons\' take on Gordon to appear along with other Bat-related characters.\r\n\r\nBased on Lissa Evans’ novel “Their Finest Hour and a Half” and directed by Lone Scherfig (“An Education”), the film is set in London during World War II when the British ministry was utilizing propaganda films to boost morale. Arterton plays Catrin Cole, a scriptwriter who is brought on to handle the women’s dialogue — commonly referred to as “the nausea.” The film, opening this week, features an outstanding ensemble, including Bill Nighy as a washed-up actor and Sam Claflin as Catrin’s fellow writer and sparring partner.\r\n\r\nArterton is next set to play Vita Sackville-West in Vita and Virginia about her relationship with Virginia Woolf. She spoke to Variety about working with female directors, remarkable women, and why she shies away from the term “strong female character.” \r\nI’m friends with the producer who I worked with on Byzantium and he sent it to me. I read the book as well, which is fantastic. You’re always looking for untold stories and many times they’re women’s stories. What surprised me is that it centers around a woman who’s really quite timid. I guess she’s allowed to be because all of the other characters.\r\n\r\n\r\nMan Down debuted simultaneously on digital platforms in the U.K., meaning it was never going to be a big earner in theaters. But no one expected only one ticket sale. As of Tuesday, the Reel Cinema in Burnley was still carrying Man Down, which also stars Gary Oldman, Jai Courtney and Kate Mara.\r\n\r\nIn the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanistan. The indie project, reuniting the star with A Guide to Recognizing Your Saints director Dito Montile, made its world premiere at the 2016 Venice Film Festival before making making a stop at the Toronto International Film Festival.', 'blogv21.jpg', '0000-00-00 00:00:00.000000'),
+(6, 'Godzilla: King Of The Monsters Adds O’Shea Jackson Jr', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female cha', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female characters. After his documented frustrations with Wonder Woman, he\'s getting another chance at the DC Extended Universe and Warner Bros., closing in on a deal to write direct and produce a Batgirl movie.\r\n\r\nIt\'s a somewhat surprising, but welcome move, given that Whedon has taken a long break to write something original, but has now pivoted to focus on developing the Batgirl project. First appearing in 1967 in Gardner Fox and Carmine Infantino\'s story run The Million Dollar Debut Of Batgirl, she\'s the superhero alias of Barbara Gordon, daughter of Gotham City Police Commissioner James Gordon. So we can likely expect J.K. Simmons\' take on Gordon to appear along with other Bat-related characters.\r\n\r\nBased on Lissa Evans’ novel “Their Finest Hour and a Half” and directed by Lone Scherfig (“An Education”), the film is set in London during World War II when the British ministry was utilizing propaganda films to boost morale. Arterton plays Catrin Cole, a scriptwriter who is brought on to handle the women’s dialogue — commonly referred to as “the nausea.” The film, opening this week, features an outstanding ensemble, including Bill Nighy as a washed-up actor and Sam Claflin as Catrin’s fellow writer and sparring partner.\r\n\r\nArterton is next set to play Vita Sackville-West in Vita and Virginia about her relationship with Virginia Woolf. She spoke to Variety about working with female directors, remarkable women, and why she shies away from the term “strong female character.” \r\nI’m friends with the producer who I worked with on Byzantium and he sent it to me. I read the book as well, which is fantastic. You’re always looking for untold stories and many times they’re women’s stories. What surprised me is that it centers around a woman who’s really quite timid. I guess she’s allowed to be because all of the other characters.\r\n\r\n\r\nMan Down debuted simultaneously on digital platforms in the U.K., meaning it was never going to be a big earner in theaters. But no one expected only one ticket sale. As of Tuesday, the Reel Cinema in Burnley was still carrying Man Down, which also stars Gary Oldman, Jai Courtney and Kate Mara.\r\n\r\nIn the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanistan. The indie project, reuniting the star with A Guide to Recognizing Your Saints director Dito Montile, made its world premiere at the 2016 Venice Film Festival before making making a stop at the Toronto International Film Festival.', 'blogv21.jpg', '0000-00-00 00:00:00.000000'),
+(7, 'Godzilla: King Of The Monsters Adds O’Shea Jackson Jr', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female cha', 'Joss Whedon has a little bit of a history with superhero movies, and for creating layered female characters. After his documented frustrations with Wonder Woman, he\'s getting another chance at the DC Extended Universe and Warner Bros., closing in on a deal to write direct and produce a Batgirl movie.\r\n\r\nIt\'s a somewhat surprising, but welcome move, given that Whedon has taken a long break to write something original, but has now pivoted to focus on developing the Batgirl project. First appearing in 1967 in Gardner Fox and Carmine Infantino\'s story run The Million Dollar Debut Of Batgirl, she\'s the superhero alias of Barbara Gordon, daughter of Gotham City Police Commissioner James Gordon. So we can likely expect J.K. Simmons\' take on Gordon to appear along with other Bat-related characters.\r\n\r\nBased on Lissa Evans’ novel “Their Finest Hour and a Half” and directed by Lone Scherfig (“An Education”), the film is set in London during World War II when the British ministry was utilizing propaganda films to boost morale. Arterton plays Catrin Cole, a scriptwriter who is brought on to handle the women’s dialogue — commonly referred to as “the nausea.” The film, opening this week, features an outstanding ensemble, including Bill Nighy as a washed-up actor and Sam Claflin as Catrin’s fellow writer and sparring partner.\r\n\r\nArterton is next set to play Vita Sackville-West in Vita and Virginia about her relationship with Virginia Woolf. She spoke to Variety about working with female directors, remarkable women, and why she shies away from the term “strong female character.” \r\nI’m friends with the producer who I worked with on Byzantium and he sent it to me. I read the book as well, which is fantastic. You’re always looking for untold stories and many times they’re women’s stories. What surprised me is that it centers around a woman who’s really quite timid. I guess she’s allowed to be because all of the other characters.\r\n\r\n\r\nMan Down debuted simultaneously on digital platforms in the U.K., meaning it was never going to be a big earner in theaters. But no one expected only one ticket sale. As of Tuesday, the Reel Cinema in Burnley was still carrying Man Down, which also stars Gary Oldman, Jai Courtney and Kate Mara.\r\n\r\nIn the film, LaBeouf stars as a war veteran suffering from PTSD following his return from Afghanistan. The indie project, reuniting the star with A Guide to Recognizing Your Saints director Dito Montile, made its world premiere at the 2016 Venice Film Festival before making making a stop at the Toronto International Film Festival.', 'blogv21.jpg', '0000-00-00 00:00:00.000000');
 
 -- --------------------------------------------------------
 
@@ -218,7 +240,7 @@ INSERT INTO `categories_main_category_info` (`idCatMainCatInfo`, `idMainCatInfo`
 CREATE TABLE `comments` (
   `idComment` int(50) NOT NULL,
   `commentText` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `idUser` int(50) NOT NULL,
   `idBlog` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -271,7 +293,8 @@ INSERT INTO `comments` (`idComment`, `commentText`, `date`, `idUser`, `idBlog`) 
 (41, 'idemo', '2019-06-05 12:21:29', 2, 3),
 (42, 'novi komentar', '2019-06-05 12:28:47', 2, 3),
 (43, 'aaaaaaaaaaaaaaaaaaaa', '2019-06-05 12:29:45', 2, 3),
-(44, 'ovo jeee', '2019-06-05 12:30:15', 2, 3);
+(44, 'ovo jeee', '2019-06-05 12:30:15', 2, 3),
+(45, 'nesto', '2019-06-06 20:48:11', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -347,7 +370,9 @@ INSERT INTO `favourites_main_category_info` (`idFavMainCatInfo`, `idMainCatInfo`
 (8, 5, 2),
 (10, 5, 1),
 (11, 8, 1),
-(12, 1, 1);
+(12, 1, 1),
+(13, 9, 2),
+(14, 10, 2);
 
 -- --------------------------------------------------------
 
@@ -610,6 +635,30 @@ INSERT INTO `roles` (`idRole`, `roleName`) VALUES
 (1, 'admin'),
 (2, 'user');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `idUser` int(50) NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `userPicture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idRole` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`idUser`, `username`, `password`, `email`, `userPicture`, `idRole`) VALUES
+(1, 'milutin', '8813af270a1d1a71c7cd25ca86186bcb', 'milutin@gmail.com', '', 1),
+(2, 'veljko', 'veljko', 'veljko', '', 2),
+(5, 'danijela', 'fef213de0f55d86f2f6ee663f346bd5e', 'danijela@gmail.com', NULL, 2);
+
 --
 -- Indexes for dumped tables
 --
@@ -633,6 +682,12 @@ ALTER TABLE `actor_main_category_info`
 --
 ALTER TABLE `agerestriction`
   ADD PRIMARY KEY (`idAgeRes`);
+
+--
+-- Indexes for table `author`
+--
+ALTER TABLE `author`
+  ADD PRIMARY KEY (`idAuthor`);
 
 --
 -- Indexes for table `blog`
@@ -682,7 +737,8 @@ ALTER TABLE `director_main_category_info`
 ALTER TABLE `favourites_main_category_info`
   ADD PRIMARY KEY (`idFavMainCatInfo`),
   ADD KEY `idMainCatInfo` (`idMainCatInfo`),
-  ADD KEY `idUser` (`idUser`);
+  ADD KEY `idUser` (`idUser`),
+  ADD KEY `idUser_2` (`idUser`);
 
 --
 -- Indexes for table `genres`
@@ -761,6 +817,14 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`idRole`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`idUser`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `idRole` (`idRole`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -783,10 +847,16 @@ ALTER TABLE `agerestriction`
   MODIFY `idAgeRes` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `author`
+--
+ALTER TABLE `author`
+  MODIFY `idAuthor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `idBlog` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idBlog` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -804,7 +874,7 @@ ALTER TABLE `categories_main_category_info`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `idComment` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `idComment` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `directors`
@@ -822,7 +892,7 @@ ALTER TABLE `director_main_category_info`
 -- AUTO_INCREMENT for table `favourites_main_category_info`
 --
 ALTER TABLE `favourites_main_category_info`
-  MODIFY `idFavMainCatInfo` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idFavMainCatInfo` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `genres`
@@ -891,6 +961,12 @@ ALTER TABLE `roles`
   MODIFY `idRole` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `idUser` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -912,8 +988,8 @@ ALTER TABLE `categories_main_category_info`
 -- Constraints for table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `blokbuter`.`users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`idBlog`) REFERENCES `blog` (`idBlog`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`idBlog`) REFERENCES `blog` (`idBlog`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`);
 
 --
 -- Constraints for table `director_main_category_info`
@@ -926,43 +1002,41 @@ ALTER TABLE `director_main_category_info`
 -- Constraints for table `favourites_main_category_info`
 --
 ALTER TABLE `favourites_main_category_info`
-  ADD CONSTRAINT `favourites_main_category_info_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `blokbuter`.`users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `favourites_main_category_info_ibfk_2` FOREIGN KEY (`idMainCatInfo`) REFERENCES `main_category_info` (`idMainCatInfo`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `favourites_main_category_info_ibfk_1` FOREIGN KEY (`idMainCatInfo`) REFERENCES `main_category_info` (`idMainCatInfo`),
+  ADD CONSTRAINT `favourites_main_category_info_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`);
 
 --
 -- Constraints for table `genre_main_category_info`
 --
 ALTER TABLE `genre_main_category_info`
-  ADD CONSTRAINT `genre_main_category_info_ibfk_1` FOREIGN KEY (`idMainCatInfo`) REFERENCES `main_category_info` (`idMainCatInfo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `genre_main_category_info_ibfk_2` FOREIGN KEY (`idGenre`) REFERENCES `genres` (`idGenre`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `genre_main_category_info_ibfk_1` FOREIGN KEY (`idMainCatInfo`) REFERENCES `main_category_info` (`idMainCatInfo`),
+  ADD CONSTRAINT `genre_main_category_info_ibfk_2` FOREIGN KEY (`idGenre`) REFERENCES `genres` (`idGenre`);
 
 --
 -- Constraints for table `main_category_info`
 --
 ALTER TABLE `main_category_info`
-  ADD CONSTRAINT `main_category_info_ibfk_1` FOREIGN KEY (`idMainCat`) REFERENCES `main_category` (`idMainCat`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `main_category_info_ibfk_2` FOREIGN KEY (`idAgeRes`) REFERENCES `agerestriction` (`idAgeRes`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `main_category_info_ibfk_1` FOREIGN KEY (`idMainCat`) REFERENCES `main_category` (`idMainCat`),
+  ADD CONSTRAINT `main_category_info_ibfk_2` FOREIGN KEY (`idAgeRes`) REFERENCES `agerestriction` (`idAgeRes`);
 
 --
 -- Constraints for table `producer_main_category_info`
 --
 ALTER TABLE `producer_main_category_info`
-  ADD CONSTRAINT `producer_main_category_info_ibfk_1` FOREIGN KEY (`idProducer`) REFERENCES `producers` (`idProducer`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `producer_main_category_info_ibfk_2` FOREIGN KEY (`idMainCatInfo`) REFERENCES `main_category_info` (`idMainCatInfo`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `rates`
---
-ALTER TABLE `rates`
-  ADD CONSTRAINT `rates_ibfk_1` FOREIGN KEY (`idMainCatInfo`) REFERENCES `main_category_info` (`idMainCatInfo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rates_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `blokbuter`.`users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `producer_main_category_info_ibfk_1` FOREIGN KEY (`idMainCatInfo`) REFERENCES `main_category_info` (`idMainCatInfo`),
+  ADD CONSTRAINT `producer_main_category_info_ibfk_2` FOREIGN KEY (`idProducer`) REFERENCES `producers` (`idProducer`);
 
 --
 -- Constraints for table `reviews`
 --
 ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `blokbuter`.`users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`idMainCatInfo`) REFERENCES `main_category_info` (`idMainCatInfo`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`idRole`) REFERENCES `roles` (`idRole`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
