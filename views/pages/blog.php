@@ -19,28 +19,30 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12" id="blog">
 				<div class="row">
-				<?php
+					<?php
 					include 'models/blog/functions.php';
-					
-					$blog = getAllBlogs();
+
+					$blog = getLimitedBlog();
 					// var_dump($blog);
-					foreach($blog as $b):
-						include ABSOLUTE_PATH.'/views/partials/singleblogfordisplay.php';
+					foreach ($blog as $b) :
+						include ABSOLUTE_PATH . '/views/partials/singleblogfordisplay.php';
 					endforeach;
-				?>
+					?>
 				</div>
-            	<ul class="pagination" id="pagination4">
-					<?php
-						$PPnumber = PPNumberBlog();
-						for($i = 1; $i < $PPnumber; $i++):
-					?>
-					<li><a href="#" data-id="<?= $i ?>" ><?= $i ?></a></li>
-					<?php
-						endfor;
-					?>
-            	</ul>
 			</div>
-			
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<ul class="pagination" id="pagination4">
+					<?php
+					$PPnumber = PPNumberBlog();
+					for ($i = 0; $i < $PPnumber; $i++) :
+						?>
+						<li><a href="#" data-id="<?= $i ?>"><?= $i + 1 ?></a></li>
+					<?php
+				endfor;
+				?>
+				</ul>
+			</div>
+
 		</div>
 	</div>
 </div>

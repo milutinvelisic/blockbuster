@@ -20,13 +20,13 @@
 			<div class="col-md-9 col-sm-12 col-xs-12">
 				<div class="celebrity-items" id="celebrities">
 					<?php
-						include 'models/celebrities/functions.php';
+					include 'models/celebrities/functions.php';
 
-						$actors = getAllActors();
-						
-						foreach($actors as $a):
-							include ABSOLUTE_PATH.'/views/partials/singlecelebrityfordisplay.php';
-						endforeach;
+					$actors = getAllActors();
+
+					foreach ($actors as $a) :
+						include ABSOLUTE_PATH . '/views/partials/singlecelebrityfordisplay.php';
+					endforeach;
 					?>
 				</div>
 				<div class="topbar-filter">
@@ -34,12 +34,12 @@
 						<span>Pages</span>
 						<?php
 						$PPnumber = PPNumberCelebs();
-						for($i = 1; $i < $PPnumber; $i++):
-						?>
-							<a class="active" href="#" data-id="<?= $i ?>"><?= $i ?></a>
+						for ($i = 0; $i < $PPnumber; $i++) :
+							?>
+							<a class="active" href="#" data-id="<?= $i ?>"><?= $i + 1 ?></a>
 						<?php
-							endfor;
-						?>
+					endfor;
+					?>
 					</div>
 				</div>
 			</div>
@@ -48,19 +48,19 @@
 					<div class="celebrities">
 						<h4 class="sb-title">featured celebrity</h4>
 						<?php
-							$someCelebs = getSomeCelebs();
-							// var_dump($someCelebs);
-							foreach($someCelebs as $sc):
-						?>
-						<div class="celeb-item">
-							<a href="index.php?p=celebrities&id=<?= $sc->idActor ?>"><img src="assets/images/uploads/<?= $sc->actorSrcBig ?>" alt="<?= $sc->actorFirstName ?>" width="70" height="70"></a>
-							<div class="celeb-author">
-								<h6><a href="index.php?p=celebrities&id=<?= $sc->idActor ?>"><?= $sc->actorFirstName ?> <?= $sc->actorLastName ?></a></h6>
+						$someCelebs = getSomeCelebs();
+						// var_dump($someCelebs);
+						foreach ($someCelebs as $sc) :
+							?>
+							<div class="celeb-item">
+								<a href="index.php?p=celebrities&id=<?= $sc->idActor ?>"><img src="assets/images/uploads/<?= $sc->actorSrcBig ?>" alt="<?= $sc->actorFirstName ?>" width="70" height="70"></a>
+								<div class="celeb-author">
+									<h6><a href="index.php?p=celebrities&id=<?= $sc->idActor ?>"><?= $sc->actorFirstName ?> <?= $sc->actorLastName ?></a></h6>
+								</div>
 							</div>
-						</div>
 						<?php
-							endforeach;
-						?>
+					endforeach;
+					?>
 					</div>
 				</div>
 			</div>

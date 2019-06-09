@@ -20,27 +20,27 @@
 				<div class="flex-wrap-movielist" id="series">
 
 					<?php
-						include 'models/series/functions.php';
-						
-						$series = getAllSeries();
-						
-						foreach($series as $s):
-							include ABSOLUTE_PATH.'/views/partials/singleseriesfordisplay.php';
-						endforeach;
-					?>				
-						
-				</div>		
+					include 'models/series/functions.php';
+
+					$series = getAllSeries();
+
+					foreach ($series as $s) :
+						include ABSOLUTE_PATH . '/views/partials/singleseriesfordisplay.php';
+					endforeach;
+					?>
+
+				</div>
 				<div class="topbar-filter">
 					<div class="pagination2" id="pagination3">
 						<span>Pages</span>
 						<?php
 						$PPnumber = PPNumberSeries();
-						for($i = 1; $i < $PPnumber; $i++):
-						?>
-							<a class="active" href="#" data-id="<?= $i ?>"><?= $i ?></a>
+						for ($i = 0; $i < $PPnumber; $i++) :
+							?>
+							<a class="active" href="#" data-id="<?= $i ?>"><?= $i + 1 ?></a>
 						<?php
-							endfor;
-						?>
+					endfor;
+					?>
 					</div>
 				</div>
 			</div>
@@ -54,22 +54,7 @@
 									<label>Movie name</label>
 									<input type="text" id="seriesname" name="seriesname" placeholder="Enter keywords">
 								</div>
-								<div class="col-md-12 form-it">
-									<label>Genres</label>
-									<div class="group-ip">
-										<select name="seriesgenres" id="seriesgenres" class="ui fluid dropdown">
-											<option value="">Enter to filter genres</option>
-											<?php
-												$moviegenres = getAllSeriesGenres();
-												foreach($moviegenres as $mg):
-											?>
-											<option value="<?= $mg->idGenre ?>"><?= $mg->genreName ?></option>
-											<?php
-												endforeach;
-											?>
-										</select>
-									</div>	
-								</div>
+
 								<div class="col-md-12 ">
 									<input class="submit" name="btnSeriesDetails" id="btnSeriesDetails" type="button" value="submit">
 								</div>
@@ -80,7 +65,7 @@
 						<img src="assets/images/uploads/ads1.png" alt="">
 					</div>
 					<?php
-						include 'views/partials/twitter.php';
+					include 'views/partials/twitter.php';
 					?>
 				</div>
 			</div>
