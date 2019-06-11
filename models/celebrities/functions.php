@@ -9,6 +9,11 @@ function getAllActors()
     return $select;
 }
 
+function getAllActorsWithoutLimit()
+{
+    return executeQuery("SELECT * FROM actors");
+}
+
 function getActorMovies($actorId)
 {
     global $conn;

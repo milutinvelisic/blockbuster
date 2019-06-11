@@ -5,7 +5,7 @@ $excelApp->Visible = true;
 
 $excelFile = $excelApp->Workbooks->Add();
 
-$worksheet = $excelFile->Worksheets("Sheet1");
+$worksheet = $excelFile->Worksheets("Sheet1");// ili List1 = zavisi od jezik windowsa
 
 
 include '../../config/connection.php';
