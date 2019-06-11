@@ -16,7 +16,7 @@
             <form action="models/users/login.php" method="POST" onSubmit="return checkLogin();">
                 <div class="row">
                     <label for="username">
-                        Username:
+                        Email:
                         <input type="text" name="logemail" id="logemail" placeholder="Hugh Jackman" required="required" />
                     </label>
                 </div>

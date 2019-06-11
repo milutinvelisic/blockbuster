@@ -1,9 +1,8 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
-  <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+  <div class="app-sidebar__user">
     <div>
-      <p class="app-sidebar__user-name">John Doe</p>
-      <p class="app-sidebar__user-designation">Frontend Developer</p>
+      <p class="app-sidebar__user-name">Welcome back <?= $_SESSION['user']->username ?></p>
     </div>
   </div>
   <ul class="app-menu">
@@ -18,6 +17,7 @@
     </li>
     <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>
     <li><a class="app-menu__item" href="index.php?p=admin&ap=data"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Data Insert</span></a></li>
+    <li><a class="app-menu__item" href="index.php?p=admin&ap=showdata"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Show Data</span></a></li>
     <li><a class="app-menu__item" href="index.php?p=admin&ap=connecttables"><i class="app-menu__icon fa fa-table"></i><span class="app-menu__label">Connect tables</span></a></li>
     <li><a class="app-menu__item" href="models/movies/exportexcel.php"><i class="app-menu__icon fa fa-table"></i><span class="app-menu__label">Export excel</span></a></li>
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i class="treeview-indicator fa fa-angle-right"></i></a>

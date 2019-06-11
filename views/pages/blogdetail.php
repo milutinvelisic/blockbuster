@@ -33,7 +33,7 @@
 			<div class="col-md-9 col-sm-12 col-xs-12">
 				<div class="blog-detail-ct">
 					<h1><?= $blog->title ?></h1>
-					<span class="time"><?= $blog->date ?></span>
+					<span class="time"><?= date("d-m-Y", strtotime($blog->date)) ?></span>
 					<p><?= $blog->textLong ?></p>
 					<!-- share link -->
 					<div class="flex-it share-tag">
@@ -60,7 +60,7 @@
 						<div class="cmt-item flex-it">
 							<div class="author-infor">
 								<div class="flex-it2">
-									<h6><a href="#"><?= $c->username ?></a></h6> <span class="time"><?= $c->date ?></span>
+									<h6><a href="#"><?= $c->username ?></a></h6> <span class="time"><?= date("d-m-Y", strtotime($c->date)) ?></span>
 								</div>
 								<p><?= $c->commentText ?></p>
 							</div>
