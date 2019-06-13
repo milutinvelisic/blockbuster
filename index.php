@@ -5,7 +5,7 @@ require_once 'config/connection.php';
 if (isset($_GET['p']) && ($_GET['p'] == "portfolio")) {
 	include 'views/pages/portfolio.php';
 } else {
-	if (isset($_GET['p']) && ($_GET['p']) == "admin") {
+	if (isset($_GET['p']) && ($_GET['p'] == "admin") && (isset($_SESSION['user']) && ($_SESSION['user']->idRole == 1))) {
 		require_once 'views/admin/fixed/head.php';
 		require_once 'views/admin/fixed/header.php';
 		require_once 'views/admin/fixed/sidebar.php';
@@ -15,6 +15,9 @@ if (isset($_GET['p']) && ($_GET['p'] == "portfolio")) {
 				break;
 			case 'data':
 				include "views/admin/pages/data.php";
+				break;
+			case 'showdata':
+				include "views/admin/pages/showdata.php";
 				break;
 			case 'connecttables':
 				include "views/admin/pages/connecttables.php";
