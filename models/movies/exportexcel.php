@@ -27,4 +27,12 @@ for ($i = 1; $i <= $count; $i++) {
     $br++;
 }
 $excelFile->_SaveAs("Filmovi" . time() . ".xlsx");
+$excelFile->Save();
+$excelFile->Saved=true;
+$excelFile->Close;
+$excelApp->Workbooks->Close();
+$excelApp->Quit();
+unset($polje);
+unset($excelFile);
+unset($excelApp);
 header("Location: ../../index.php?p=admin&ap=dashboard");
